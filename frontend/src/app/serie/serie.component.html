@@ -1,0 +1,93 @@
+<div class="apanyo">
+    <!-- Nav bar-->
+    <div id="listadelistas" class="d-flex fw-bold justify-content-center w-100 px-2" style="position: relative;">
+        <a routerLink="/" class="d-none d-lg-flex raton" style="position: absolute; top: 0; left: 0; margin: 1rem; width: 2rem; z-index: 1;"> <!-- Enlace para volver atrás -->
+            <img src="assets/img/flecho.png" alt="Volver" style="width: 100%;">
+        </a>
+        <!-- Aquí iría el enlace para editar la serie, pero no estoy seguro si ese es el comportamiento que deseas mantener en Angular -->
+        <!-- En Angular, generalmente se usaría un botón o enlace que desencadenaría una acción en lugar de una redirección directa -->
+        <a routerLink="/editar/{{ serie.id }}" class="d-none d-lg-flex raton" style="position: absolute; top: 5rem; left: 0; margin: 1rem; width: 2rem; z-index: 1;">
+            <img src="assets/img/emoji1.png" alt="Editar" style="width: 100%;">
+        </a>
+        <div class="row col-12 my-3">
+            <div class="col-lg-5 col-12">
+                <div class="mx-auto portada" [style.background-image]="'url(' + serie.foto + ')'"></div>
+                <div class="w-100 d-flex justify-content-evenly align-items-center mt-3">
+                    <div class="w-25 genderer py-2 text-light px-lg-3" style="background-color: #FF4867;">{{ serie.genero1 }}</div>
+                    <div class="w-25 py-2 text-light px-lg-3 genderer" style="background-color: #FF4867;">{{ serie.genero2 }}</div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-12 container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-7">
+                        <h2 class="bg-danger px-4 py-2 text-light mt-3">{{ serie.nombre }}</h2>
+                        <p class="fw-bold">{{ serie.temporadas }} temporadas</p>
+                    </div>
+                    <div class="col-5 d-flex align-items-center justify-content-center mx-auto">
+                        <img src="assets/img/Star 1.png" alt="Estrella" style="width: 40%;">
+                        <p class="m-0 fs-4 nota">{{ serie.nota }}</p>
+                    </div>
+                </div>
+                <p class="col-lg-11 col-12 mt-4 w-100 bg-light fw-normal p-2">{{ serie.sinopsis }}</p>
+                <div class="raton col-12 d-flex align-items-center justify-content-center">
+                    <div class="raton col-12 d-flex align-items-center justify-content-center">
+                        <button class="py-lg-2 px-lg-3 py-3 px-4" style="background-color: #8DE1DE;" data-toggle="modal" data-target="#listaModal">
+                            Añadir a una lista
+                        </button>
+
+                        <div class="modal fade" id="listaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Selecciona una lista</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <!-- <div class="modal-body">
+                                        <ul class="px-0">
+                                            <li *ngFor="let lista of listas">
+                                                <button class="btn btn-link mx-auto p-0 w-100 py-3 mt-2 text-decoration-none fw-bold" style="background-color: #8DE1DE;color: black" (click)="addToLista(lista.id)">{{ lista.nombre }}</button>
+                                            </li>
+                                        </ul>
+
+                                    </div> -->
+                                    <!-- <div class="modal-footer">
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#crearListaModal">
+                                            Crear nueva lista
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- <div class="modal fade" id="crearListaModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Crear nueva lista</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form (submit)="crearLista()">
+                        <div class="form-group">
+                            <label for="nombre">Nombre de la lista</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" required [(ngModel)]="nuevaListaNombre">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear lista</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

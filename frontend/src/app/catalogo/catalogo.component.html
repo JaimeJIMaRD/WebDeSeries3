@@ -1,0 +1,16 @@
+<div class="apanyo">
+    <!-- Nav bar-->
+    <img src="{{ 'img/mas.png' }}" class="d-none d-lg-flex raton" style="position: absolute; top: 5rem; left: 0; margin: 1rem; width: 2rem; z-index: 1;" >
+
+    <div id="catalogo" class="container d-flex fw-bold">
+
+        <div class="row mx-auto">
+            <div class="col-6 mt-3 col-lg-3" *ngFor="let serie of series">
+                <div class="raton d-block text-center w-100" (click)="goToSeriesDetail(serie.id)">
+                    <div class="mx-auto foto" [style.background-image]="'url(' + serie.foto + ')'" style="height: 14rem; width: 9.5rem; background-size: cover;"></div>
+                    <div>{{ serie.nombre }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
