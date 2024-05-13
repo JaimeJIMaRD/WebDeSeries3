@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lista;
 use App\Models\Serie;
 use Illuminate\Http\Request;
 
@@ -69,4 +70,16 @@ $serie->delete();
 
 return response()->json(null, 204);
 }
+    public function addToSerieList($serieId, $listaId)
+    {
+        $serie = Serie::find($serieId);
+        $lista = Lista::find($listaId);
+
+        if ($serie && $lista) {
+            $lista->series()->attach($serie);
+            return redirect()->back()->with('success', 'Serie añadida a la lista correctamente.');
+        } else {
+            return redirect()->back()->with('error', 'Error al agregar la serie a la lista.');
+        }
+    }
 }

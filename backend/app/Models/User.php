@@ -66,4 +66,8 @@ class User extends Authenticatable implements JWTSubject
         'password' => 'hashed',
     ];
 
+    public function biblioteca()
+    {
+        return $this->hasOne(Biblioteca::class);
+    }
 }

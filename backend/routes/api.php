@@ -38,9 +38,9 @@ Route::get('/series/{id}', [SeriesController::class, 'show'])->name('series.show
 Route::put('/series/{id}', [SeriesController::class, 'update'])->name('series.update');
 Route::get('/series/{id}/edit', [SeriesController::class, 'edit'])->name('series.edit');
 Route::post('/series', [SeriesController::class, 'store'])->name('series.store');
-Route::get('/bibliotecas', [BibliotecasController::class, 'index'])->name('bibliotecas.index');
+Route::get('/biblioteca', [BibliotecasController::class, 'index'])->name('bibliotecas.index');
 Route::get('/listas', [ListasController::class, 'index'])->name('listas.index');
-Route::get('/bibliotecas/{biblioteca}/listas/{lista}', [ListasController::class, 'show'])->name('listas.show');
+Route::get('/biblioteca/listas/{lista}', [ListasController::class, 'show'])->name('listas.show');
 Route::post('/series/{serieId}/add-to-list/{listaId}', [SeriesController::class, 'addToSerieList'])->name('series.add-to-list');
 Route::post('/listas', [ListasController::class, 'store'])->name('listas.store');
 Route::put('/listas/{lista}', [ListasController::class, 'update'])->name('listas.update');
